@@ -34,11 +34,10 @@ export class BoardComponent implements OnInit {
       this.playSound(this.xIsNext ? 'assets/sound-X.wav' : 'assets/sound-O.wav');
       this.squares.splice(index, 1, this.nextPlayer);
       this.xIsNext = !this.xIsNext;
+      this.winner = this.findWinner();
     } else {
       this.playSound('assets/error.wav');
     }
-
-    this.winner = this.findWinner();
   }
 
   findWinner() {
@@ -54,8 +53,10 @@ export class BoardComponent implements OnInit {
     ];
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
-      if (this.squares[a] && (this.squares[a] === this.squares[b]) && (this.squares[a] === this.squares[c])) {
-        this.playSound('assets/win.wav');
+      if (this.squares[a] && (this.squares[a] === this.squares[b]) && (this.squares[a] === this.squares[c])) {    
+        setTimeout(() => {
+          this.playSound('assets/win.wav');
+        }, 1000)
         return this.squares[a];
       }
     }

@@ -5,7 +5,7 @@
     New Game
 </button>
 
-<h4 *ngIf="winner">
+<h4 *ngIf="winner" [ngStyle]="{ 'color' : (winner === 'X') ? 'rgb(208, 158, 255)' : 'rgb(148, 211, 54)' }">
     Player {{winner}} won the Game.
 </h4>
 
