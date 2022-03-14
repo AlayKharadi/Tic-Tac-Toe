@@ -1,0 +1,26 @@
+:host{
+    --square-length: 100px;
+}
+
+.board-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50%);
+    display: grid;
+    gap: 0px;
+    grid-template-columns: var(--square-length) var(--square-length) var(--square-length);
+    border: 1px solid whitesmoke;
+}
+
+button{
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid rgb(99, 98, 98);
+}
+
+app-square{
+    height: var(--square-length);
+    border: 1px solid whitesmoke;
+}
